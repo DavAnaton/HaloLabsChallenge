@@ -9,12 +9,19 @@ import ReactDOM from 'react-dom';
 class App extends React.Component {
    constructor(props) {
          super(props);
+         this.state = {
+            snow: false,
+         };
+   }
+
+   addSnow(){
+      this.setState({snow: !this.state.snow});
    }
 
    render () {
-      const menuItems = [
-         {name: "Display OK", action: (()=>{alert('OK');})},
-         {name: "Display OK", action: (()=>{alert('OK');})},
+      var menuItems = [
+         {name: "Toggle Snow",
+          action: this.addSnow.bind(this)},
       ];
       return (
          <Scene>
@@ -27,7 +34,7 @@ class App extends React.Component {
             <Entity primitive="a-light" type="ambient" color="#445451"/>
             <Entity primitive="a-light" type="point" intensity="2" position="2 4 4"/>
             <Entity primitive="a-sky" height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048"/>
-            <Entity particle-system={{preset: 'snow', particleCount: 2000}}/>
+            <Entity visible={this.state.snow} particle-system={{preset: 'snow', particleCount: 2000}}/>
 
             <Menu items={menuItems}></Menu>
 
@@ -80,9 +87,9 @@ class Fuseable extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
-         timer: this.props.timer || 30, // 3 seconds
+         timer: 10,
          interval: null,
-         color: this.props.color || 'red',
+         color: "red",
          opacity: 1
       }; 
    }
@@ -92,8 +99,8 @@ class Fuseable extends React.Component {
          interval: setInterval(function () {
             obj.setState({timer: obj.state.timer - 1});
             if(obj.state.timer == 0){ //Timer finished
-               obj.props.action();
                obj.unhover();
+               obj.props.action();
             }
          }, 100)
       });
