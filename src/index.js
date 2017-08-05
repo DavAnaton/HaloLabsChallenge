@@ -70,7 +70,8 @@ class Menu extends React.Component {
                value={item.name}
                x={x}
                y={y}
-               action={item.action}>
+               action={item.action}
+               timer="10">
             </Fuseable>
          );
       });
@@ -87,7 +88,7 @@ class Fuseable extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
-         timer: 10,
+         timer: this.props.timer,
          interval: null,
          color: "red",
          opacity: 1
@@ -107,7 +108,7 @@ class Fuseable extends React.Component {
    }
    unhover(evt){
       clearInterval(this.state.interval);
-      this.setState({timer: this.props.timer || 30});
+      this.setState({timer: this.props.timer});
    }
    render () {
       return (
