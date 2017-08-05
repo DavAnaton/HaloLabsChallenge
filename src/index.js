@@ -11,7 +11,31 @@ class App extends React.Component {
          super(props);
          this.state = {
             snow: false,
+            menuItems : [
+               {name: "Add Item",
+                action: this.addItem.bind(this)},
+            ]
          };
+   }
+
+   addItem(){
+      const fullMenu = [
+         {name: "Add Item", action: this.addItem.bind(this)},
+         {name: "Remove Item", action: this.removeItem.bind(this)},
+         {name: "Toggle Snow", action: this.addSnow.bind(this)},
+         {name: "Display OK", action: (() => alert('OK')) }
+      ];
+
+      var menu = this.state.menuItems;
+      var indexNewItem = menu.length % fullMenu.length;
+      menu.push(fullMenu[indexNewItem]);
+      this.setState({menuItems: menu})
+   }
+
+   removeItem(){
+      var menu = this.state.menuItems;
+      menu.pop();
+      this.setState({menuItems: menu})
    }
 
    addSnow(){
@@ -19,10 +43,6 @@ class App extends React.Component {
    }
 
    render () {
-      var menuItems = [
-         {name: "Toggle Snow",
-          action: this.addSnow.bind(this)},
-      ];
       return (
          <Scene>
             <a-assets>
@@ -36,7 +56,7 @@ class App extends React.Component {
             <Entity primitive="a-sky" height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048"/>
             <Entity visible={this.state.snow} particle-system={{preset: 'snow', particleCount: 2000}}/>
 
-            <Menu items={menuItems}></Menu>
+            <Menu items={this.state.menuItems}></Menu>
 
             <Entity primitive="a-camera">
                <Entity primitive="a-cursor" animation__click={{property: 'scale', startEvents: 'click', from: '0.1 0.1 0.1', to: '1 1 1', dur: 150}}/>
