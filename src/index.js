@@ -14,7 +14,8 @@ class App extends React.Component {
             menuItems : [
                {name: "Add Item",
                 action: this.addItem.bind(this)},
-            ]
+            ],
+            groundTexture: 1 
          };
    }
 
@@ -23,6 +24,7 @@ class App extends React.Component {
          {name: "Add Item", action: this.addItem.bind(this)},
          {name: "Remove Item", action: this.removeItem.bind(this)},
          {name: "Toggle Snow", action: this.addSnow.bind(this)},
+         {name: "Change Ground", action: this.changeGround.bind(this)},
          {name: "Display OK", action: (() => alert('OK')) }
       ];
 
@@ -42,15 +44,21 @@ class App extends React.Component {
       this.setState({snow: !this.state.snow});
    }
 
+   changeGround(){
+      this.setState({groundTexture: this.state.groundTexture % 2 + 1}) // 2 different textures
+         console.log(this.state.groundTexture)
+   }
+
    render () {
       return (
          <Scene>
             <a-assets>
-               <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg"/>
+               <img id="groundTexture1" src="https://cdn.aframe.io/a-painter/images/floor.jpg"/>
+               <img id="groundTexture2" src="https://static.pexels.com/photos/242616/pexels-photo-242616.jpeg"/>
                <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg"/>
             </a-assets>
 
-            <Entity primitive="a-plane" src="#groundTexture" rotation="-90 0 0" height="100" width="100"/>
+            <Entity primitive="a-plane" src={"#groundTexture" + this.state.groundTexture} rotation="-90 0 0" height="100" width="100"/>
             <Entity primitive="a-light" type="ambient" color="#445451"/>
             <Entity primitive="a-light" type="point" intensity="2" position="2 4 4"/>
             <Entity primitive="a-sky" height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048"/>
