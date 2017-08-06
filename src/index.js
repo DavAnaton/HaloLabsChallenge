@@ -19,6 +19,10 @@ class App extends React.Component {
          };
    }
 
+   /*
+   Adds an item in the menu.
+   For the purpose of this demo, the menu is build dynamically just to show how it can adapt to different size of menus
+   */
    addItem(){
       const fullMenu = [
          {name: "Add Item", action: this.addItem.bind(this)},
@@ -34,19 +38,28 @@ class App extends React.Component {
       this.setState({menuItems: menu})
    }
 
+   /*
+   Removes last item of the menu
+   */
    removeItem(){
       var menu = this.state.menuItems;
       menu.pop();
       this.setState({menuItems: menu})
    }
 
+   /*
+   Adds snow in the scene
+   */
    addSnow(){
       this.setState({snow: !this.state.snow});
    }
 
+   /*
+   Changes ground texture.
+   Here, we loaded 2 different textures (groundTexture1 and groundTexture2). Hence the formula to output either 1 or 2
+   */
    changeGround(){
       this.setState({groundTexture: this.state.groundTexture % 2 + 1}) // 2 different textures
-         console.log(this.state.groundTexture)
    }
 
    render () {
@@ -77,21 +90,28 @@ class App extends React.Component {
 class Menu extends React.Component {
    constructor(props) {
       super(props);
-      // this.state.spacing = {x: 0.7, y: 0.3};
+      this.state = {
+         spacing: {x: 0.7, y: 0.3}
+      };
    }
 
    render () {
-
       const nbItem = this.props.items.length;
-      const menuSize = Math.ceil(Math.sqrt(nbItem)); // size of square to fit all items
+      const menuSize = Math.ceil(Math.sqrt(nbItem)); // size of menu in terms of item in each row/column
+      const spacing = this.state.spacing; // Spacing between items
       const centerOfMenu = {
-         x: Math.ceil(nbItem/menuSize-1)*0.7/2, // center with the number of columns
-         y: (menuSize-1)*0.3/2 // center with the number of lines
+         // we count the number of columns
+         x: Math.ceil(nbItem/menuSize-1)*spacing.x/2,
+         //The first column is always full. We center the menu according to the height of the menu.
+         y: (menuSize-1)*spacing.y/2
       };
 
+      /*
+      Creates a Fuseable item for each item in the object that contains the items
+      */
       const renderedItems = this.props.items.map(function(item, index){
-         const x = Math.floor(index/menuSize)*0.7;
-         const y = (index % menuSize)*0.3;
+         const x = Math.floor(index/menuSize)*spacing.x;
+         const y = (index % menuSize)*spacing.y;
 
          return (
             <Fuseable
@@ -122,6 +142,10 @@ class Fuseable extends React.Component {
          opacity: 1
       }; 
    }
+
+   /*
+   Starts a countdown on hovering
+   */
    hover(evt){
       var obj = this;
       this.setState({
@@ -134,10 +158,15 @@ class Fuseable extends React.Component {
          }, 100)
       });
    }
+
+   /*
+   Clears the countdown when we leave the Fuseable
+   */
    unhover(evt){
       clearInterval(this.state.interval);
       this.setState({timer: this.props.timer});
    }
+
    render () {
       return (
          <Entity class="Fuseable"
