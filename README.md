@@ -12,7 +12,9 @@ You are encouraged to use [aframe-react-boilerplate](https://github.com/ngokevin
 **Bonus points**: For implementing relevant components from the [awesome-aframe](https://github.com/aframevr/awesome-aframe) collection.
 ## Implementation
 According to the challenge, I used [aframe-react-boilerplate](https://github.com/ngokevin/aframe-react-boilerplate).<br/>
-Then, I've just developed a "fuseable" menu.
+Then, I've just developed a "fuseable" menu.<br/>
+This smart-menu takes an array of objects ```{value: 'Display OK', action: (() => alert('OK'))}``` and present them as a fuseable 3D menu in your A-frame application.<br/>
+It is able to adapt to any size of array and still present them in a nice squared menu.
 ## Installation
 Download the latest version of HaloLabsChallenge.
 
@@ -23,6 +25,9 @@ $ cd HaloLabsChallenge
 $ npm install
 $ npm start
 ```
+
+##Result
+[![Logo HaloLabs](https://github.com/DavAnaton/HaloLabsChallenge/raw/master/Docs/Screenshot.png)]()
 
 ## Development
 
@@ -43,3 +48,4 @@ We still have much to do. Here's a small list:
 	- [aframe-gradient-sky](https://github.com/zcanter/aframe-gradient-sky)
 	- [aframe-lensflare-component](https://github.com/mokargas/aframe-lensflare-component)
 	- [aframe-mario-star-component](https://github.com/casonclagg/aframe-mario-star-component)
+
