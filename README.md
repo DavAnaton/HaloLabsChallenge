@@ -38,7 +38,7 @@ We still have much to do. Here's a small list:
 - Use [aframe-ui-modal-component](https://www.npmjs.com/package/aframe-ui-modal-component) to hide/display menu
 - Add other functions to the menu
 - Split the class declarations in different files 
-	- Create a src/Menu folder
+	- Create a ```src/Menu``` folder
 	- Move the classes ```Menu``` and ```Fuseable``` respectively to ```Menu.js``` and ```Fuseable.js```
 - Implement components from the [awesome-aframe](https://github.com/aframevr/awesome-aframe) collection. The most interesting starting points seem to be:
 	- [aframe-leap-hands](https://github.com/openleap/aframe-leap-hands)
