@@ -26,7 +26,7 @@ $ npm install
 $ npm start
 ```
 
-##Result
+## Result
 [![Logo HaloLabs](https://github.com/DavAnaton/HaloLabsChallenge/raw/master/Docs/Screenshot.png)]()
 
 ## Development
@@ -48,4 +48,3 @@ We still have much to do. Here's a small list:
 	- [aframe-gradient-sky](https://github.com/zcanter/aframe-gradient-sky)
 	- [aframe-lensflare-component](https://github.com/mokargas/aframe-lensflare-component)
 	- [aframe-mario-star-component](https://github.com/casonclagg/aframe-mario-star-component)
-
