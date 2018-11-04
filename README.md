@@ -1,5 +1,5 @@
 # HaloLabsChallenge
-
+[Live demo](https://halo-labs-challenge.herokuapp.com/) (be patient, the demo is around 65Mo)
 [![Logo HaloLabs](https://github.com/DavAnaton/HaloLabsChallenge/raw/master/Docs/logo.png)]()
 
 Challenge sent by [HaloLabs](https://www.halolabs.io/).<br/>
