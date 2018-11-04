@@ -12,9 +12,9 @@ You are encouraged to use [aframe-react-boilerplate](https://github.com/ngokevin
 **Bonus points**: For implementing relevant components from the [awesome-aframe](https://github.com/aframevr/awesome-aframe) collection.
 ## Implementation
 According to the challenge, I used [aframe-react-boilerplate](https://github.com/ngokevin/aframe-react-boilerplate).<br/>
-Then, I've just developed a "fuseable" menu.<br/>
+Then, I developed a "fuseable" menu.<br/>
 This smart-menu takes an array of objects ```{value: 'Display OK', action: (() => alert('OK'))}``` and present them as a fuseable 3D menu in your A-frame application.<br/>
-It is able to adapt to any size of array and still present them in a nice squared menu.
+No matter what is the size of your array, the menu will always be displayed nicely in a square grid.
 ## Installation
 Download the latest version of HaloLabsChallenge.
 
