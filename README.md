@@ -1,5 +1,7 @@
 # HaloLabsChallenge
+
 [Live demo](https://halo-labs-challenge.herokuapp.com/) (be patient, the demo is around 65Mo)
+
 [![Logo HaloLabs](https://github.com/DavAnaton/HaloLabsChallenge/raw/master/Docs/logo.png)]()
 
 Challenge sent by [HaloLabs](https://www.halolabs.io/).<br/>
@@ -15,6 +17,10 @@ According to the challenge, I used [aframe-react-boilerplate](https://github.com
 Then, I developed a "fuseable" menu.<br/>
 This smart-menu takes an array of objects ```{value: 'Display OK', action: (() => alert('OK'))}``` and present them as a fuseable 3D menu in your A-frame application.<br/>
 No matter what is the size of your array, the menu will always be displayed nicely in a square grid.
+
+ - Drag-n-drop to rotate the camera
+ - Use the arrows on your keyboard to move in the scene
+
 ## Installation
 Download the latest version of HaloLabsChallenge.
 
